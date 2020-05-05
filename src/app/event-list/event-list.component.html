@@ -1,0 +1,80 @@
+<div class="event-list-container grid-mark">
+
+  <app-toast></app-toast>
+
+  <div class="countdown-timer-grid">
+    <div class="grid-numbers" id="days"></div>
+    <div class="grid-numbers" id="hours"></div>
+    <div class="grid-numbers" id="minutes"></div>
+    <div class="grid-numbers" id="seconds"></div>
+    <div class="grid-words">Days</div>
+    <div class="grid-words">Hours</div>
+    <div class="grid-words">Minutes</div>
+    <div class="grid-words">Seconds</div>
+  </div>
+
+  <div class="event-name" id="eventName">
+    
+  </div>
+  
+  
+
+  <div class="table-padding">
+    <div class="event-list-padding table-background">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Event</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Timer</th>
+            <th scope="col">
+              <button type="button" class="btn btn-secondary button-space float-button" [disabled]="disableAddButton"
+                (click)="addEvent()">New</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of events; let i = index">
+            <th *ngIf="!event.editMode" scope="row">{{event.event}}</th>
+            <td *ngIf="!event.editMode">{{event.date}}</td>
+            <td *ngIf="!event.editMode">{{event.time}}</td>
+
+            <th *ngIf="event.editMode" scope="row">
+              <input [(ngModel)]="event.event" type="text" class="form-control" placeholder="Event" aria-label="Event">
+            </th>
+            <td *ngIf="event.editMode">
+              <input [(ngModel)]="event.date" type="text" class="form-control" placeholder="Date" aria-label="Date">
+            </td>
+            <td *ngIf="event.editMode">
+              <input [(ngModel)]="event.time" type="text" class="form-control" placeholder="Time" aria-label="Time">
+            </td>
+
+            <td>
+              <div *ngIf="!event.editMode" class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary" [disabled]="disableViewButton"
+                  (click)="showCountdown(event)">Start</button>
+                <button type="button" class="btn btn-secondary" [disabled]="disableStopButton"
+                  (click)="killTimer(event)">Stop</button>
+              </div>
+              <input *ngIf="event.editMode" [(ngModel)]="event.alertMessage" type="text" class="form-control"
+                placeholder="Alert Message" aria-label="Alert Message">
+            </td>
+
+            <td>
+              <button *ngIf="event.editMode" type="button" class="btn btn-success button-space"
+                (click)="saveEvent(event)">Save</button>
+              <button *ngIf="event.editMode" type="button" class="btn btn-danger float-button"
+                (click)="deleteEvent(i)">X</button>
+              <button *ngIf="!event.editMode" type="button" class="btn btn-secondary float-button"
+                [disabled]="disableEditButton" (click)="editEvent(event)">Edit</button>
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

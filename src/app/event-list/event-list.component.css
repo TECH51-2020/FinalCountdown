@@ -1,0 +1,64 @@
+.event-list-container {
+    display: grid;
+    grid-template-rows: 10px 180px 100px auto;
+    /* padding: 30px; */
+    height: 100vh;
+    overflow: auto;
+    
+}
+
+
+.countdown-timer-grid {
+    padding-left: 100px;
+    padding-right: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 80px 50px;
+    text-align: center;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    color: white;
+}
+
+.grid-numbers {
+    font-size: 400%;
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+.event-name {
+    font-size: 200%;
+    text-align: center;
+    color: white;
+    height: 60px;
+}
+
+.grid-words {
+    text-align: center;
+    font-size: 120%;
+}
+
+.event-list-padding {
+    padding: 15px;
+    height: auto;
+}
+
+.table-background {
+    background-color: white;
+    -webkit-box-shadow: 10px 10px 28px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 28px -9px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 28px -9px rgba(0,0,0,0.75);
+}
+
+.button-space {
+    float: right;
+    margin-right: 10px;
+}
+
+.float-button {
+    float: right;
+    margin-right: 10px;
+}

@@ -1,0 +1,10 @@
+<h1>Hi {{currentUser.firstName}}!</h1>
+<p>Welcome! You are logged onto The Final Countdown</p>
+<h2>Current registered user:</h2>
+<ul>
+    <li *ngFor="let user of users">
+        {{user.username}} ({{user.firstName}} {{user.lastName}})
+        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+    </li>
+</ul>
+
